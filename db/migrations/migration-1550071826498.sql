@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS quotes;
+
+CREATE TABLE NOT EXISTS quotes (
+    id BIGSERIAL PRIMARY KEY,
+    quote TEXT,
+    author VARCHAR(50)
+);
