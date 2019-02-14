@@ -3,11 +3,17 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// Import Path
+const path = require('path');
+
+//Static files
+app.use(express.static('build'));
+
 //API Routes
 app.use('/api/quotes', require('./routes/quote-routes'));
 
-app.get('/', (req, resp) => {
-    res.send('Hello World!');
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
 app.listen(PORT, () => {
